@@ -1,6 +1,6 @@
 <!doctype html>
 <style>
-    .img-item {
+.img-item {
     margin-bottom: 15px; /* Adjust as needed for spacing */
 }
 
@@ -13,11 +13,13 @@
 
 .img-wrap img {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image covers the container without distortion */
+    object-fit: cover; /* Ensures the image covers the container */
+    object-position: center; /* Centers the image within the container */
+    transform: translate(-50%, -50%); /* Centers the image */
 }
 
 .overlay {
@@ -41,6 +43,7 @@
 .fancybox {
     display: block;
 }
+
 </style>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -358,30 +361,7 @@
                     </div>
                 </a>
             </div>
-            
-            
-            <div class="col-md-2 img-item">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_0953.PNG">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/eng_pics/IMG_0953.PNG" alt=""/>
-                    </div>
-                </a>
-            </div>
-            
-            
-            <div class="col-md-2 img-item">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_0954.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/eng_pics/IMG_0954.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
+
             
             
             <div class="col-md-2 img-item">
@@ -455,17 +435,6 @@
                 </a>
             </div>
             
-            
-            <div class="col-md-2 img-item">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_4881_Original.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/eng_pics/IMG_4881_Original.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
             
             
             <div class="col-md-2 img-item">
