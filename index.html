@@ -1,9 +1,57 @@
 <!doctype html>
 <style>
 .img-fluid {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* Ensure the grid container takes up the full width */
+.section-padding {
+    padding: 0;
+}
+
+.img-wrap {
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0; /* Background color to handle empty spaces */
+    border-radius: 8px; /* Optional: to give images rounded corners */
+}
+
+/* Aspect ratio adjustment */
+.img-wrap::before {
+    content: "";
+    display: block;
+    padding-top: 75%; /* Adjust based on desired aspect ratio (e.g., 75% for 4:3) */
+}
+
+.img-wrap img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.img-wrap:hover .overlay {
+    opacity: 1;
+}
+
+.fancybox {
+    display: block;
+}
+
 }
 </style>
 <!--[if lt IE 7]>
