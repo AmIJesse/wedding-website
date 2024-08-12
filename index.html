@@ -1,43 +1,25 @@
 <!doctype html>
 <style>
-    .row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* Create four equal columns that sit next to each other */
-.column {
-  flex: 25%;
-  max-width: 25%;
-  padding: 0 4px;
-  position: relative; /* Ensure the container is positioned relative for absolute positioning of the image */
-  overflow: hidden; /* Hide any overflow from the image cropping */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
 }
 
-/* Ensure the image covers the container and is cropped to the center width and top 75% */
-.column img {
-  display: block; /* Remove extra space below images */
+.image-item {
+  overflow: hidden;
+}
+
+.image-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Crop the image to cover the container */
-  object-position: center top; /* Center the image horizontally and align to the top 75% */
-}
-
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-  .column {
-    flex: 50%;
-    max-width: 50%;
-  }
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-  }
+  height: auto;
+  display: block;
 }
 
 </style>
@@ -251,8 +233,8 @@
             </div>
         </div>
         <div class="row">
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/07DA3ADA-F7E1-4BE6-B238-F7DDA50A5622_Original.jpg">
+             <div class="image-grid">
+                <a class="image-item" rel="group" href="img/eng_pics/07DA3ADA-F7E1-4BE6-B238-F7DDA50A5622_Original.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -263,8 +245,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/1U4A4159.JPG">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/1U4A4159.JPG">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -275,8 +257,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/DSCF1890_Original.jpg">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/DSCF1890_Original.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -287,8 +269,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/DSCF1920_Original.jpg">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/DSCF1920_Original.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -299,8 +281,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/DSCF2045_Original.jpg">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/DSCF2045_Original.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -311,8 +293,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_0941.jpg">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_0941.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -323,8 +305,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_0942.jpg">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_0942.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -335,8 +317,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_0950.jpg">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_0950.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -347,8 +329,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_0951.PNG">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_0951.PNG">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -360,8 +342,8 @@
 
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_0956.JPG">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_0956.JPG">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -372,8 +354,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_0963.JPG">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_0963.JPG">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -384,8 +366,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_20210901_155525_Original.heic">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_20210901_155525_Original.heic">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -396,8 +378,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_20210901_155603_Original.heic">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_20210901_155603_Original.heic">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -408,8 +390,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_2849_Original.jpg">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_2849_Original.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -420,8 +402,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_3193_Original.jpg">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_3193_Original.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -433,8 +415,8 @@
             
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_5186_Original.jpg">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_5186_Original.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -445,8 +427,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_5204_Original.jpg">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_5204_Original.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
@@ -457,8 +439,8 @@
             </div>
             
             
-             <div class="column">
-                <a class="fancybox" rel="group" href="img/eng_pics/IMG_7080_Original.jpg">
+             <div class="col-md-4 mb-4">
+                <a class="image-item" rel="group" href="img/eng_pics/IMG_7080_Original.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
