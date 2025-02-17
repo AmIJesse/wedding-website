@@ -195,11 +195,19 @@ $(document).ready(function () {
                 } else {
                     $('#alert-wrapper').html('');
                     $('#rsvp-modal').modal('show');
-                    // Show the map section after successful RSVP
-                    $('section#map').addClass('show-map');
-                    // Reinitialize the map
+                    
+                    // Show the map section
+                    $('section#map').show().addClass('show-map');
+                    
+                    // Force a small delay to ensure the section is visible before initializing the map
                     setTimeout(function() {
+                        // Initialize map
                         initMap();
+                        
+                        // Scroll to map section
+                        $('html, body').animate({
+                            scrollTop: $('section#map').offset().top - 90
+                        }, 1000);
                     }, 500);
                 }
             })
@@ -207,7 +215,6 @@ $(document).ready(function () {
                 console.log(data);
                 $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
             });
-
     });
 
 });
@@ -217,15 +224,35 @@ $(document).ready(function () {
 // Google map
 function initMap() {
     var location = {lat: 53.7503, lng: -113.3937}; // Coordinates for Sturgeon County
+    
+    // Create map
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
         center: location,
-        scrollwheel: false
+        scrollwheel: false,
+        styles: [
+            {
+                "featureType": "all",
+                "elementType": "geometry.fill",
+                "stylers": [{"weight": "2.00"}]
+            }
+        ]
     });
 
+    // Add marker
     var marker = new google.maps.Marker({
         position: location,
-        map: map
+        map: map,
+        title: 'Wedding Venue'
+    });
+    
+    // Add info window
+    var infowindow = new google.maps.InfoWindow({
+        content: '<div style="text-align:center;"><strong>Wedding Venue</strong><br>12 Gibbonslea Drive<br>Sturgeon County</div>'
+    });
+    
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
     });
 }
 
