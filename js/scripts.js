@@ -196,7 +196,7 @@ $(document).ready(function () {
                     $('#alert-wrapper').html('');
                     $('#rsvp-modal').modal('show');
                     // Show the map section after successful RSVP
-                    $('#map').addClass('show-map');
+                    $('section#map').addClass('show-map');
                 }
             })
             .fail(function (data) {
