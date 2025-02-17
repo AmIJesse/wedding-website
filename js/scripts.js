@@ -170,7 +170,7 @@ $(document).ready(function () {
             end: new Date('Sept 7, 2025 00:00'),
 
             // Event Address
-            address: 'TBD',
+            address: '12 Gibbonslea Drive, Sturgeon County',
 
             // Event Description
             description: "We can't wait to see you on our big day. For any queries or issues, please contact Jesse or Kirstyn."
@@ -195,6 +195,8 @@ $(document).ready(function () {
                 } else {
                     $('#alert-wrapper').html('');
                     $('#rsvp-modal').modal('show');
+                    // Show the map section after successful RSVP
+                    $('#map').addClass('show-map');
                 }
             })
             .fail(function (data) {
@@ -210,7 +212,7 @@ $(document).ready(function () {
 
 // Google map
 function initMap() {
-    var location = {lat: 22.5932759, lng: 88.27027720000001};
+    var location = {lat: 53.7503, lng: -113.3937}; // Coordinates for Sturgeon County
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
         center: location,
@@ -219,20 +221,6 @@ function initMap() {
 
     var marker = new google.maps.Marker({
         position: location,
-        map: map
-    });
-}
-
-function initBBSRMap() {
-    var la_fiesta = {lat: 20.305826, lng: 85.85480189999998};
-    var map = new google.maps.Map(document.getElementById('map-canvas'), {
-        zoom: 15,
-        center: la_fiesta,
-        scrollwheel: false
-    });
-
-    var marker = new google.maps.Marker({
-        position: la_fiesta,
         map: map
     });
 }
