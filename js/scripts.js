@@ -196,19 +196,10 @@ $(document).ready(function () {
                     $('#alert-wrapper').html('');
                     $('#rsvp-modal').modal('show');
                     
-                    // Show the map section
-                    $('section#map').show().addClass('show-map');
-                    
-                    // Force a small delay to ensure the section is visible before initializing the map
-                    setTimeout(function() {
-                        // Initialize map
+                    // Initialize map after modal is shown
+                    $('#rsvp-modal').on('shown.bs.modal', function () {
                         initMap();
-                        
-                        // Scroll to map section
-                        $('html, body').animate({
-                            scrollTop: $('section#map').offset().top - 90
-                        }, 1000);
-                    }, 500);
+                    });
                 }
             })
             .fail(function (data) {
@@ -254,6 +245,10 @@ function initMap() {
     marker.addListener('click', function() {
         infowindow.open(map, marker);
     });
+
+    // Trigger a resize event to ensure the map renders correctly in the modal
+    google.maps.event.trigger(map, 'resize');
+    map.setCenter(location);
 }
 
 // alert_markup
