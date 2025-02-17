@@ -197,6 +197,10 @@ $(document).ready(function () {
                     $('#rsvp-modal').modal('show');
                     // Show the map section after successful RSVP
                     $('section#map').addClass('show-map');
+                    // Reinitialize the map
+                    setTimeout(function() {
+                        initMap();
+                    }, 500);
                 }
             })
             .fail(function (data) {
