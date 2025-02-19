@@ -636,7 +636,22 @@
 <script src="js/scripts.min.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlPw3GQYI3faa_9mRE6plWuM7xNEmrwH0&callback=initMap"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/heic2any/dist/heic2any.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const heicImages = document.querySelectorAll('img[src$=".heic"]');
+        heicImages.forEach(img => {
+            fetch(img.src)
+                .then(response => response.blob())
+                .then(blob => heic2any({ blob }))
+                .then(conversionResult => {
+                    const url = URL.createObjectURL(conversionResult);
+                    img.src = url;
+                })
+                .catch(error => console.error('Error converting HEIC image:', error));
+        });
+    });
+</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d08bd677d12a4f74b7c86436eabf44dc"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
