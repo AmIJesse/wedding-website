@@ -64,10 +64,19 @@
     width: auto; /* Maintain aspect ratio */
 }
 
+.form-input-group {
+    position: relative;
+}
+
 .form-input-group i {
-    display: flex;
-    align-items: center;
-    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+
+.form-input-group input {
+    padding-left: 35px;
 }
 
 </style>
