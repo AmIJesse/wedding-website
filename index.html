@@ -94,15 +94,12 @@
     display: flex;
     gap: 18px;
     padding: 4px 10px;
-    background: #faf7ef;
-    border: 1px solid #f0e3b0;
+    background: none;
+    border: none;
     border-radius: 6px;
     margin-bottom: 10px;
     justify-content: center;
     align-items: center;
-    max-width: 350px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .radio-group label {
@@ -112,11 +109,11 @@
     font-size: 15px;
     color: #666;
     font-weight: 400;
-    transition: color 0.3s, font-weight 0.3s, background 0.3s, border 0.3s;
+    transition: color 0.3s, font-weight 0.3s;
     margin-bottom: 0;
     padding: 4px 18px;
     border-radius: 20px;
-    border: 1.5px solid transparent;
+    border: none;
     background: transparent;
     user-select: none;
 }
@@ -130,13 +127,14 @@
 
 .radio-group input[type="radio"]:checked + span {
     font-weight: 700;
-    color: #b89c3a;
-    background: #f6e7b7;
-    border: 1.5px solid #e2c97a;
+    color: #222;
+    font-size: 18px;
+    background: transparent;
+    border: none;
 }
 
 .radio-group label span {
-    transition: font-weight 0.3s, color 0.3s, background 0.3s, border 0.3s;
+    transition: font-weight 0.3s, color 0.3s, font-size 0.3s;
     padding: 0;
 }
 
