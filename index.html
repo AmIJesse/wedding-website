@@ -613,14 +613,20 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <div class="form-input-group">
-                                <i class="fa fa-users"></i><input type="number" name="count" class="" min="0"
-                                                                  max="10"
-                                                                  placeholder="Number of People"
-                                                                  required>
+                        <div class="col-md-12">
+                            <div class="form-input-group" style="margin-bottom: 20px;">
+                                <div class="radio-group" style="text-align: left; padding-left: 35px;">
+                                    <label style="margin-right: 20px;">
+                                        <input type="radio" name="attending" value="yes" checked> Will attend
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="attending" value="no"> Cannot attend
+                                    </label>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="form-input-group">
                                 <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
@@ -629,13 +635,28 @@
                                                                 required>
                             </div>
                         </div>
+                        <div class="col-md-6 col-sm-12 attending-fields">
+                            <div class="form-input-group">
+                                <i class="fa fa-users"></i><input type="number" name="count" class="" min="0"
+                                                                  max="10"
+                                                                  placeholder="Number of People"
+                                                                  required>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row">
+                    <div class="row attending-fields">
                         <div class="col-md-12">
                             <div class="form-input-group">
                                 <i class="fa fa-cutlery"></i><input name="dietary" class=""
-                                                                  placeholder="Any dietary restrictions or allergies?"
-                                                                  >
+                                                                  placeholder="Any dietary restrictions or allergies?">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row not-attending-fields" style="display: none;">
+                        <div class="col-md-12">
+                            <div class="form-input-group">
+                                <i class="fa fa-comment"></i><input name="dietary" class=""
+                                                                  placeholder="Any additional notes or comments?">
                             </div>
                         </div>
                     </div>
@@ -664,6 +685,7 @@
 <script src="https://cdn.jsdelivr.net/npm/heic2any/dist/heic2any.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        // Handle HEIC image conversion
         const heicImages = document.querySelectorAll('a.fancybox[href$=".heic"]');
         heicImages.forEach(anchor => {
             fetch(anchor.href)
@@ -675,6 +697,46 @@
                     anchor.querySelector('img').src = url;
                 })
                 .catch(error => console.error('Error converting HEIC image:', error));
+        });
+
+        // Handle attendance toggle
+        const attendingRadios = document.querySelectorAll('input[name="attending"]');
+        const attendingFields = document.querySelectorAll('.attending-fields');
+        const notAttendingFields = document.querySelectorAll('.not-attending-fields');
+        const countInput = document.querySelector('input[name="count"]');
+
+        function toggleAttendingFields() {
+            const isAttending = document.querySelector('input[name="attending"]:checked').value === 'yes';
+            attendingFields.forEach(field => {
+                field.style.display = isAttending ? 'flex' : 'none';
+            });
+            notAttendingFields.forEach(field => {
+                field.style.display = isAttending ? 'none' : 'flex';
+            });
+            if (!isAttending) {
+                countInput.value = '0';
+            }
+        }
+
+        attendingRadios.forEach(radio => {
+            radio.addEventListener('change', toggleAttendingFields);
+        });
+
+        // Handle form submission
+        const rsvpForm = document.getElementById('rsvp-form');
+        rsvpForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(rsvpForm);
+            const isAttending = formData.get('attending') === 'yes';
+            
+            if (!isAttending) {
+                formData.set('count', '0');
+            }
+
+            // Here you would typically send the formData to your server
+            // For now, we'll just show the success modal
+            $('#rsvp-modal').modal('show');
+            rsvpForm.reset();
         });
     });
 </script>
